@@ -107,14 +107,6 @@
     <li><strong>Policy Gradient Training:</strong> Utilizes <strong>Proximal Policy Optimization (PPO)</strong> via Stable-Baselines3 to converge on an optimal tracking policy.</li>
 </ul>
 
-<h4>Technical Implementation</h4>
-<p>The agent's state includes its current position, the target's last known coordinates, the time elapsed, and the remaining observation budget. The reward function is designed to incentivize proximity, granting a <strong>+1.0 bonus</strong> for successful "catches" (within a 0.5 unit radius) and applying a penalty based on the Euclidean distance otherwise.</p>
-
-
-<h4>Usage & Results</h4>
-<p>The project includes a full pipeline for training and visualization:</p>
-<pre><code># Train the PPO agent
-
 More projects are found on  <a href="https://github.com/Yonatan235" target="_blank">GitHub</a>.
     </section>
   
@@ -146,6 +138,7 @@ Also, check out my blog where I post book reviews and other thoughts:
     </footer>
 </body>
 </html>
+
 
 
 
