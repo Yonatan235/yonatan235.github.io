@@ -68,7 +68,7 @@
         <h1>Yonatan Ashenafi</h1>
         <nav>
            <a href="#about">About</a>
-			<!-- <a href="#research">Projects</a> -->
+			<a href="#research">Projects</a>
             <a href="#research">Research</a>
            <a href="#teaching">Teaching</a>
 	<a href="https://github.com/Yonatan55/yashenafi/raw/main/CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
@@ -86,25 +86,70 @@
     </div>
 </section>
 
-	 <!-- <section id="projects">
+	 <section id="projects">
         <h2>Selected Projects in Data Science and Machine Learning</h2>
 
     <div class="project">
-        <h3>Solar Flux Forecasting: Hybrid Machine Learning and Signal Decomposition Pipeline</h3>
-        <p>This project implements a robust pipeline for forecasting F10.7 solar radio flux by integrating Discrete Wavelet Transforms (DWT) with advanced feature engineering. It utilizes both k-Nearest Neighbors (k-NN) regression to perform multi-step recursive forecasting, capturing complex solar cycles and short-term fluctuations for accurate daily predictions.</p>
+        <h3>Solar Flux Forecasting with k-NN and Wavelets</h3>
+
+  <p>
+ This project models and predicts daily F10.7 solar radio flux using a combination of 
+<em>time-series features, wavelet decomposition, and k-Nearest Neighbors regression</em>. The dataset 
+includes daily adjusted F10.7 flux from the Canadian Space Weather database. It consists of over 78 years of continuous daily measurements starting from January 1, 1947, up to the present day. Along with it we append lagged values, 
+rolling statistics (mean and standard deviation), and wavelet decomposition into trend and detail components. A k-Nearest Neighbors regressor 
+with distance-weighted neighbors is trained using a chronological split, with the hyperparameter 
+<code>k</code> optimized via cross-validation.
+  </p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+    <div style="flex: 1; min-width: 300px;">
+      <h4 style="margin: 0 0 5px 0;">Predictions vs Actual</h4>
+      <p style="margin: 0 0 5px 0; font-size: 0.9em;">
+        Test set predictions compared to true F10.7 flux.
+      </p>
+      <img src="f107_forecast_plot.png" alt="k-NN Predictions vs Actual" style="width: 100%; height: auto; display: block;">
     </div>
 
-		 <div class="project"> <h3>Learning to Pursue: Reinforcement Learning for Pursuit–Evasion Dynamics</h3> <p>We study a pursuit–evasion problem in which a reinforcement learning agent learns optimal interception strategies in a continuous environment using Proximal Policy Optimization (PPO). Unlike standard pursuit problems where the target's position is always known, this environment introduces <strong>discrete observations</strong>. The agent must strategically decide <em>when</em> to "peek" at the target's location, balancing its limited observation budget against the increasing uncertainty of the target's path.</p>
+    <div style="flex: 1; min-width: 300px;">
+      <h4 style="margin: 0 0 5px 0;">Feature Correlation</h4>
+      <p style="margin: 0 0 5px 0; font-size: 0.9em;">
+        Correlation of input features with target flux.
+      </p>
+      <img src="f107_feature_correlations.png" alt="Feature Correlation" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
 
-<h4>Key Features</h4>
-<ul>
-    <li>Stochastic Target Dynamics: Supports standard Brownian motion and heavy-tailed Lévy walk target movements.</li>
-    <li>Custom Gymnasium Environment: Built using the <code>Gymnasium</code> API with a continuous action space (wait time) and a multi-dimensional observation space.</li>
-    <li>Policy Gradient Training: Utilizes Proximal Policy Optimization (PPO) via Stable-Baselines3 to converge on an optimal tracking policy.</li>
-</ul>
+<div class="project"></div>
+<h3>Adaptive Pursuit via Reinforcement Learning (RL)</h3>
+  <p>
+    We study a 2D stochastic pursuit problem: a pursuer tries to catch a randomly moving target
+    under a limited observation budget. The random motion is Brownian although we also studied Levy Walks. The pursuer moves at constant speed and updates its path
+    toward the <em>last observed target position</em>. Observations are limited to <strong>N<sub>obs</sub></strong> over a fixed time horizon. An RL agent is trained to choose <em>observation timing</em> actions that maximize capture efficiency.
+    Reward is +1 for catching the target, otherwise negative proportional to distance.
+  </p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+  <div style="flex: 1; min-width: 300px;">
+    <h4>Trajectory Visualization</h4>
+    <p>The animation below shows the trained agent pursuing a Brownian target.</p>
+    <img src="rl_pursuit.gif" alt="RL Pursuit Animation" style="width: 100%; height: auto;">
+  </div>
 
+  <div style="flex: 1; min-width: 300px;">
+    <h4>Distance-to-Target Comparison</h4>
+    <p>Comparison of trained PPO agent vs untrained observation schedules (uniform, random, geometric).</p>
+    <img src="distance_comparison_merged.png" alt="Distance-to-Target Comparison" style="width: 100%; height: auto;">
+  </div>
+</div>
+
+  <!-- <h3>Takeaways</h3>
+  <ul>
+    <li>Observation timing is crucial under limited sensing.</li>
+    <li>Geometric spacing improves untrained schedules.</li>
+    <li>Trained RL agent learns adaptive pursuit, outperforming all fixed strategies.</li>
+  </ul> -->
+</div>
 More projects are found on  <a href="https://github.com/Yonatan235" target="_blank">GitHub</a>.
-    </section> -->
+    </section>
   
     <section id="research">
         <h2>Research </h2>
