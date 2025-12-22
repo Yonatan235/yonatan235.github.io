@@ -92,7 +92,7 @@
   <p>
     We study a 2D stochastic pursuit problem: a pursuer tries to catch a randomly moving target
     under a limited observation budget. The random motion is Brownian although we also studied Levy Walks. The pursuer moves at constant speed and updates its path
-    toward the <em>last observed target position</em>. Observations are limited to <strong>N<sub>obs</sub></strong> over a fixed time horizon. An RL agent is trained to choose <em>observation timing</em> actions that maximize capture efficiency.
+    toward the <em>last observed target position</em>. Observations are limited to <strong>N<sub>obs</sub></strong> over a fixed time horizon. An RL agent is trained using a policy gradient method (PPO) to choose <em>observation timing</em> actions that maximize capture efficiency.
     Reward is +1 for catching the target, otherwise negative proportional to distance.
   </p>
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
@@ -104,7 +104,7 @@
 
   <div style="flex: 1; min-width: 300px;">
     <h4>Distance-to-Target Comparison</h4>
-    <p>Comparison of trained PPO agent vs untrained observation schedules (uniform, random, geometric).</p>
+    <p>Comparison of trained RL agent vs untrained observation schedules (uniform, random, geometric).</p>
     <img src="distance_comparison_merged.png" alt="Distance-to-Target Comparison" style="width: 100%; height: auto;">
   </div>
 </div>
@@ -178,6 +178,7 @@ Also, check out my blog where I post book reviews and other thoughts:
     </footer>
 </body>
 </html>
+
 
 
 
